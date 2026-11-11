@@ -262,7 +262,7 @@
 <p class="lead reveal">Registro y login comparten conexi&oacute;n, variables de entorno y UTF-8 completo.</p>
 </div>
 <div class="code reveal d1">
-<span class="k">$host</span> = getenv(<span class="s">"DB_HOST"</span>) ?: "localhost";<br><span class="k">$base</span> = getenv(<span class="s">"DB_NAME"</span>) ?: "TieUp";<br>$conn = new mysqli($host,$usuario,$contrasena,$base,$puerto);<br>$conn-&gt;set_charset(<span class="s">"utf8mb4"</span>);</div>
+<span class="k">$credentials</span> = parse_ini_file(<span class="s">"/var/www/facu_fx/.db_credentials.txt"</span>);<br><br><span class="k">$conn</span> = new mysqli(<br>&nbsp;&nbsp;&nbsp;&nbsp;$credentials[<span class="s">"Host"</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;$credentials[<span class="s">"Usuario"</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;$credentials[<span class="s">"Contraseña"</span>],<br>&nbsp;&nbsp;&nbsp;&nbsp;$credentials[<span class="s">"BaseDeDatos"</span>]<br>);</div>
 </div></section><section data-n="Registro"><span class="num">13 / BACKEND</span><div class="wrap grid2">
 <div class="shot feature-shot reveal float"><img src="login.png" alt="Registro e inicio de sesi&oacute;n reales"><div class="screenline"></div></div>
 <div>
